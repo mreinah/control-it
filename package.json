@@ -1,0 +1,19 @@
+{
+  "name": "control-it",
+  "version": "0.0.1",
+  "description": "This is a Node.js application to manage the IT storage",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mreinah/control-it.git"
+  },
+  "author": "Manuel Reina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mreinah/control-it/issues"
+  },
+  "homepage": "https://github.com/mreinah/control-it#readme"
+}
