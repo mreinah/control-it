@@ -16,7 +16,6 @@ app.use(bodyParser.urlencoded({
 }))
 
 
-
 // Creamos el servidor y lo ponemos a escuchar a la vez comprobamos que tenemos conexión con la BD
 const server = http.createServer(app);
 
