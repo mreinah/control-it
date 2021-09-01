@@ -18,14 +18,10 @@ app.use(bodyParser.urlencoded({
 // Creamos los enrutadores para utilizarlo en nuestra API
 const computers = require('./routes/computers')
 const computerservice = require('./routes/computer-service');
-const employees = require('./routes/employees')
-const employeeservice = require('./routes/employee-service');
-const monitors = require('./routes/monitors')
-const monitorservice = require('./routes/monitor-service');
+
 
 app.use('/computers', computers);
-app.use('/employees', employees);
-app.use('/monitors', monitors);
+
 // Creamos el servidor y lo ponemos a escuchar a la vez comprobamos que tenemos conexión con la BD
 const server = http.createServer(app);
 
@@ -35,26 +31,13 @@ computerservice.connectDb((err) => {
         process.exit(1);
     }
 
-    employeeservice.connectDb((err) => {
-        if (err) {
-            console.log('Could not connect with MongoDB – employeeService', err);
-            process.exit(1);
-        }
-
-    });
-
-    monitorservice.connectDb((err) => {
-        if (err) {
-            console.log('Could not connect with MongoDB – monitorService', err);
-            process.exit(1);
-        }
+    
 
 
 
         server.listen(PORT, () => {
             console.log('Server up and running on localhost:' + PORT);
         });
-    });
 
 
 });
