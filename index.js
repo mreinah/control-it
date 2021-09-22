@@ -6,6 +6,7 @@ const http = require('http');
 const PORT = process.env.PORT || 8080;
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const path = require('path');
 app.use(cors());
 
 // Configuramos la aplicación de express
@@ -22,10 +23,16 @@ const employees = require('./routes/employees')
 const employeeservice = require('./routes/employee-service');
 const monitors = require('./routes/monitors')
 const monitorservice = require('./routes/monitor-service');
+const { use } = require('./routes/computers');
 
 app.use('/computers', computers);
 app.use('/employees', employees);
 app.use('/monitors', monitors);
+
+
+app.use('/', express.static('./public'));
+app.use('/ordenadores', express.static(path.join(__dirname + '/public/crearComputer.html')))
+
 
 // Creamos el servidor y lo ponemos a escuchar a la vez comprobamos que tenemos conexión con la BD
 const server = http.createServer(app);
