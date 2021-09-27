@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,11 +14,10 @@
 
     <!-- CDN de VUE-->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    <title>Document</title>
+
+    <title>Monitores</title>
 </head>
-
 <body>
-
     <div id="app">
         <!--  Lo que creemos aqui interacciona con el VUE de app.js-->
 
@@ -28,40 +26,33 @@
                 <div class="col-md-3">
                     <div class="mb-1">
                         <label for="formGroupExampleInput" class="form-label">Número de serie</label>
-                        <input type="text" class="form-control" v-model="newComputer.serial">
+                        <input type="text" class="form-control" v-model="newMonitor.serial">
                     </div>
                     <div class="mb-1">
                         <label for="formGroupExampleInput2" class="form-label">Marca</label>
-                        <input type="text" class="form-control" v-model="newComputer.brand">
+                        <input type="text" class="form-control" v-model="newMonitor.brand">
                     </div>
                     <div class="mb-1">
                         <label for="formGroupExampleInput" class="form-label">Modelo</label>
-                        <input type="text" class="form-control" v-model="newComputer.model">
+                        <input type="text" class="form-control" v-model="newMonitor.model">
                     </div>
-                    <div class="mb-1">
-                        <input class="form-check-input" type="checkbox" v-model="newComputer.isLaptop" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Es portátil
-                        </label>
-                    </div>
-
                     <div class="mb-1">
                         <label for="formGroupExampleInput2" class="form-label">Descripción</label>
-                        <input type="text" class="form-control" v-model="newComputer.description">
+                        <input type="text" class="form-control" v-model="newMonitor.description">
                     </div>
 
 
-                    <button class="btn btn-primary" v-if="!editMode" v-on:click="addComputers">Añadir PC</button>
-                    <button class="btn btn-warning" v-if="editMode" v-on:click="editComputers">Editar PC</button>
+                    <button class="btn btn-primary" v-if="!editMode" v-on:click="addMonitors">Añadir Monitor</button>
+                    <button class="btn btn-warning" v-if="editMode" v-on:click="editMonitors">Editar Monitor</button>
                 </div>
                 <div class="col-md-6">
                     <!-- Mediante V-for hacemos que itere cada elemento en el array recuperado en "travels" desde la BD y lo pinte en el html-->
-                    <div class="card" style="width: 18rem; margin: 5px;" v-for="c in computers">
+                    <div class="card" style="width: 18rem; margin: 5px;" v-for="m in monitors">
                         <div class="card-body">
-                            <h6 class="card-subtitle mb-2">{{c.serial}}</h6>
-                            <p class="card-text">{{c.brand}}</p>
-                            <p class="card-text">{{c.model}}</p>
-                            <button type="button" class="btn btn-danger btn-sm" v-on:click="removeComputer(c)">
+                            <h6 class="card-subtitle mb-2">{{m.serial}}</h6>
+                            <p class="card-text">{{m.brand}}</p>
+                            <p class="card-text">{{m.model}}</p>
+                            <button type="button" class="btn btn-danger btn-sm" v-on:click="removeMonitor(m)">
                                 <!-- Es para dibujar un borrar-->
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-trash" viewBox="0 0 16 16">
@@ -74,7 +65,7 @@
                                     </path>
                                 </svg>
                             </button>
-                            <button type="button" class="btn btn-warning btn-sm" v-on:click="editComputer(c)">
+                            <button type="button" class="btn btn-warning btn-sm" v-on:click="editMonitor(m)">
                                 <!-- Es para dibujar un editar-->
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -90,7 +81,6 @@
             </div>
         </div>
     </div>
-    <script src="js/appComputers.js"></script>
+    <script src="js/appMonitors.js"></script>
 </body>
-
 </html>

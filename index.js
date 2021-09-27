@@ -31,7 +31,8 @@ app.use('/monitors', monitors);
 
 
 app.use('/', express.static('./public'));
-app.use('/ordenadores', express.static(path.join(__dirname + '/public/crearComputer.html')))
+app.use('/ordenadores', express.static(path.join(__dirname + '/public/crearComputer.html')));
+app.use('/empleados', express.static(path.join(__dirname + '/public/crearEmpleado.html')));
 
 
 // Creamos el servidor y lo ponemos a escuchar a la vez comprobamos que tenemos conexión con la BD
