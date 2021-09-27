@@ -15,53 +15,49 @@
 
     <!-- CDN de VUE-->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    <title>Document</title>
+    <title>Empleados</title>
+
 </head>
 
 <body>
-
     <div id="app">
-        <!--  Lo que creemos aqui interacciona con el VUE de app.js-->
-
         <div class="container">
             <div class="row">
-                <div class="col-md-3">
-                    <div class="mb-1">
-                        <label for="formGroupExampleInput" class="form-label">Número de serie</label>
-                        <input type="text" class="form-control" v-model="newComputer.serial">
-                    </div>
-                    <div class="mb-1">
-                        <label for="formGroupExampleInput2" class="form-label">Marca</label>
-                        <input type="text" class="form-control" v-model="newComputer.brand">
-                    </div>
-                    <div class="mb-1">
-                        <label for="formGroupExampleInput" class="form-label">Modelo</label>
-                        <input type="text" class="form-control" v-model="newComputer.model">
-                    </div>
-                    <div class="mb-1">
-                        <input class="form-check-input" type="checkbox" v-model="newComputer.isLaptop" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Es portátil
-                        </label>
-                    </div>
-
-                    <div class="mb-1">
-                        <label for="formGroupExampleInput2" class="form-label">Descripción</label>
-                        <input type="text" class="form-control" v-model="newComputer.description">
-                    </div>
-
-
-                    <button class="btn btn-primary" v-if="!editMode" v-on:click="addComputers">Añadir PC</button>
-                    <button class="btn btn-warning" v-if="editMode" v-on:click="editComputers">Editar PC</button>
-                </div>
                 <div class="col-md-6">
-                    <!-- Mediante V-for hacemos que itere cada elemento en el array recuperado en "travels" desde la BD y lo pinte en el html-->
-                    <div class="card" style="width: 18rem; margin: 5px;" v-for="c in computers">
+                    <div class="mb-3">
+                        <label for="formGroupExampleInput" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" v-model="newEmployee.name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="formGroupExampleInput2" class="form-label">User Nt</label>
+                        <input type="text" class="form-control" v-model="newEmployee.userNt">
+                    </div>
+                    <div class="mb-3">
+                        <label for="formGroupExampleInput" class="form-label">Login</label>
+                        <input type="text" class="form-control" v-model="newEmployee.login">
+                    </div>
+                    <div class="mb-3">
+                        <label for="formGroupExampleInput" class="form-label">Departament</label>
+                        <input type="text" class="form-control" v-model="newEmployee.departament">
+                    </div>
+                    <div class="mb-3">
+                        <label for="formGroupExampleInput" class="form-label">Rank</label>
+                        <input type="text" class="form-control" v-model="newEmployee.rank">
+                    </div>
+
+                    <button class="btn btn-primary" v-if="!editMode" v-on:click="addEmployee">Añadir PC</button>
+                    <button class="btn btn-warning" v-if="editMode" v-on:click="editEmployees">Editar PC</button>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card" style="width: 18rem; margin: 5px;" v-for="e in employees">
                         <div class="card-body">
-                            <h6 class="card-subtitle mb-2">{{c.serial}}</h6>
-                            <p class="card-text">{{c.brand}}</p>
-                            <p class="card-text">{{c.model}}</p>
-                            <button type="button" class="btn btn-danger btn-sm" v-on:click="removeComputer(c)">
+                            <h6 class="card-subtitle mb-2">{{e.name}}</h6>
+                            <p class="card-text">{{e.userNt}}</p>
+                            <p class="card-text">{{e.login}}</p>
+                            <p class="card-text">{{e.departament}}</p>
+                            <p class="card-text">{{e.rank}}</p>
+                            <button type="button" class="btn btn-danger btn-sm" v-on:click="removeEmployee(e)">
                                 <!-- Es para dibujar un borrar-->
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-trash" viewBox="0 0 16 16">
@@ -74,7 +70,7 @@
                                     </path>
                                 </svg>
                             </button>
-                            <button type="button" class="btn btn-warning btn-sm" v-on:click="editComputer(c)">
+                            <button type="button" class="btn btn-warning btn-sm" v-on:click="editEmployee(e)">
                                 <!-- Es para dibujar un editar-->
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -90,7 +86,8 @@
             </div>
         </div>
     </div>
-    <script src="js/appComputers.js"></script>
+
+    <script src="js/appEmployee.js"></script>
 </body>
 
 </html>
